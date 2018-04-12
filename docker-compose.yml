@@ -1,23 +1,27 @@
-services:
-    container_name: nodeJS
 
-    volumes: 
-        - .:/app
+app:
+  container_name: nodeJS
 
-    ports:
-      
-      - "8080:8080"
+  restart: always
 
-    command: bash -c "npm install; nodemon app.js --color=always"
+  build: .
 
-    links: 
-      - mongo
+  ports:
+    - "8080:8080"
 
-  mongo:
-    image: mongo
+  command: bash -c "npm install; nodemon app.js --color=always"
 
-    container_name: mgdb
+  links: 
+    - mongo
 
-    ports:
+mongo:
+  image: mongo
+  
+  container_name: mongo
+
+  volumes:
+    - ./data:/db
+
+  ports:
       - "27017:27017"
       
