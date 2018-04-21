@@ -2,6 +2,8 @@
 app:
   container_name: nodeJS
 
+  restart: always
+
   build: .
 
   ports:
