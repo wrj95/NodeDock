@@ -2,9 +2,9 @@
 
  RUN npm install nodemon -g
 
- WORKDIR /app 
+ WORKDIR .
 
- COPY package.json /app
+ COPY package.json .
 
  RUN npm install   
 
