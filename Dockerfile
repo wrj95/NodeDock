@@ -1,7 +1,5 @@
  FROM node:latest  
 
- RUN npm install nodemon -g
-
  WORKDIR .
 
  COPY package.json .
@@ -10,6 +8,9 @@
 
  COPY . .
 
- EXPOSE 8080 
+ RUN npm install nodemon
+
+
+ EXPOSE 8080
 
  CMD ["npm", "start"]

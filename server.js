@@ -9,7 +9,8 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 
-var routes = require('./routes/api');
+
+var routes = require('/routes/api');
 app.use('/api', routes);
 
 app.listen(PORT, HOST);
