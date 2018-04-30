@@ -1,12 +1,15 @@
-var routes = require("express").Router();
+const routes = require('express');
+
+const app = express();
+
 
 //POST: add
-routes.post('/', function(req, res){
+app.post('/', function(req, res){
 	res.send('Hello world POST \n');
 });
 //GET
-routes.get('/id', function(req, res){
-	res.send('Hello world GET \n');
+app.get('/id', function(req, res){
+	res.send('Hello world GET 2 \n');
 });
 //GGET
 //PUT

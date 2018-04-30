@@ -1,10 +1,9 @@
 {
   "name": "docker_web_app",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "WRJ <welintonribeirojunior@gmail.com>",
   "main": "server.js",
-  "dev": "nodemon --inspect ./server.js",
   "scripts": {
     "start": "node server.js"
   },

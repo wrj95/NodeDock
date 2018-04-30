@@ -1,6 +1,6 @@
 'use strict';
 
-const express = require('express').Router();
+const express = require('express');
 
 // Constants
 const PORT = 8080;
@@ -9,8 +9,11 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('get 1 \n');
+});
 
-var routes = require('/routes/api');
+const routes = require('/routes/api');
 app.use('/api', routes);
 
 app.listen(PORT, HOST);

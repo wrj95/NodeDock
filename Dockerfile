@@ -1,15 +1,16 @@
- FROM node:latest  
+ FROM node:carbon 
 
- WORKDIR .
+ RUN mkdir /api
 
- COPY package.json .
+ RUN npm install nodemon -g
+
+ WORKDIR ./api
+
+ COPY package*.json .
 
  RUN npm install   
 
  COPY . .
-
- RUN npm install nodemon
-
 
  EXPOSE 8080
 
