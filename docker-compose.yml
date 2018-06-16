@@ -1,17 +1,16 @@
 
-app:
+web:
   container_name: nodeJS
   
   build: .
 
   ports:
-    - "8080:8080"
+    - "3000:3000"
 
   volumes:
     - ./node_modules:/npm
 
   command: bash -c "npm install; nodemon server.js --color=always"
-
 
   links: 
     - mongo

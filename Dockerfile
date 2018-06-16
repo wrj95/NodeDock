@@ -2,8 +2,6 @@
 
  RUN mkdir /api
 
- RUN npm install nodemon -g
-
  WORKDIR ./api
 
  COPY package*.json .
@@ -12,6 +10,8 @@
 
  COPY . .
 
- EXPOSE 8080
+ RUN npm install nodemon -g
+ 
+ RUN npm install
 
  CMD ["npm", "start"]

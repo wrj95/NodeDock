@@ -1,26 +1,26 @@
 'use strict';
 
+const http = require('http');
+const debug = require('debug')('nodestr:server');
 const express = require('express');
-
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// App
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('get 1 \n');
-});
-
 //const routes = require('/routes/api');
-app.get('/api', (req, res) =>{
-	res.send('get 2');
-});
 
-app.post('/api/post', (req, res) =>{
-	res.send('POST 1');
-});
+// WHERE WILL RUN THE API
+const PORT = 3000;
+const HOST = '0.0.0.0';     
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+// App express and set the port in it
+const app = express();
+app.set('port', PORT);
+
+//Instance server to API
+const server = http.createServer(app);
+const router = express.Router();
+
+var route = router.get('/', function(req, res, next){
+	res.send('Olá Mundo WRJ \n');
+});
+app.use('/', route);
+
+server.listen(PORT);
+console.log(`Running on http://${HOST}`);
