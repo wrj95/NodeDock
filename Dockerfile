@@ -10,8 +10,8 @@
 
  COPY . .
 
- RUN npm install nodemon -g
- 
- RUN npm install
+ RUN npm install -g nodemon
+
+ RUN npm install mysql
 
  CMD ["npm", "start"]

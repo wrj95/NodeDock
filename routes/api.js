@@ -9,17 +9,23 @@ const router = express.Router();
 //Extension to convert the answer on JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extend: false}));
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
 
 //CRUD
 
 //GET
 const route = router.get('/', function(req, res, next){
-	res.send('Olá Mundo WRJ API OTHER PATH \n');
+	var nozora = req.body;
+	res.status(201).send(nozora);
 });
 
 
 //POST
-const create = router.post('/', function(req, res, next){
+const create = router.post('/produto', function(req, res, next){
 	//Answer will be on format JSON
 	res.status(201).send(req.body);
 });
